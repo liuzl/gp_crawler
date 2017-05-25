@@ -1,0 +1,36 @@
+{
+  "parser_name": "google_play",
+  "parser_type": "html",
+  "example_url": "https://play.google.com/store/apps/details?id=com.facebook.orca",
+  "no_default_fields": false,
+  "rules": {
+    "root": [
+      {
+        "rule_type": "string",
+        "item_key": "genre",
+        "xpath": "//*[@itemprop='genre']"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "datePublished",
+        "xpath": "//*[@itemprop='datePublished']"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "numDownloads",
+        "xpath": "//*[@itemprop='numDownloads']"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "email",
+        "xpath": "//a[@class='dev-link'][contains(text(), 'Email')]",
+        "regex": "Email (.+)"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "offeredBy",
+        "xpath": "//div[contains(text(), 'Offered By')]/following-sibling::div"
+      }
+    ]
+  }
+}
